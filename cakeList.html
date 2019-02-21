@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/cakeIndex.css">
+</head>
+<style>
+    section{width: 100%;padding-top: 80px;overflow:hidden;}
+    #searchBar{height: 100px;border-top:1px solid #ddd;margin-top: 20px;border-bottom:1px solid #ddd;margin-bottom: 30px;}
+    #search{width:400px;height: 50px;margin-top: 24px;border:2px solid #eee;border-radius:5px;}
+    #searchBtn{width:80px;height: 30px;background-color:#eee;border:0;color:#974029;border-radius:10px;}
+    button:focus{outline:none;}
+    #searchBar #rank{display:inline-block;margin-left: 20px;font-size:14px;color:#974029;}
+    /* #searchBar label{width: 50px;height: 30px;margin-left: 50px;font-size:14px;color:#974029;} */
+    #searchBar #rank input{display:none;}
+    #searchBar #rank label{width: 15px;height: 15px;border:1px solid #eee;border-radius:50%;display:inline-block;margin-right: 20px;}
+    #searchBar #rank input:checked + label{background-color:#caad91;}
+    #cakeList{height: 800px;overflow:hidden;}
+    #cakeList li{width: 270px;height: 380px;float: left;margin-bottom: 20px;margin-left: 24px;}
+    #cakeList li img{width: 270px;height: 246px;border-radius:10px;}
+    #cakeList li img:hover{background-color:rgba(238,238,238,.4);}
+    #cakeList li .cakename{width: 270px;height: 20px;text-align:center;color:#974029;font-size: 14px;}
+    #cakeList li .cakename:hover{color:#caad91;}
+    #cakeList li .cakedetails{width: 270px;height: 20px;padding-top: 3px;font-size: 12px;color:#caad91;text-align:center;}
+    #cakeList li .price{width: 270px;height: 20px;padding-top: 2px;font-size: 12px;text-align:center;color:#caad91;}
+    #cakeList li .goodsCart{width: 270px;height: 40px;text-align:center;line-height: 40px;}
+    #cakeList  .goodsCart a{width:80px;height: 25px;margin-top: 8px;}
+    #cakeList  .goodsCart .purchased{font-size: 12px;color:#caad91;text-align:center;line-height: 25px;}
+    #cakeList .goodsCart a:hover{background-color:rgba(238,169,184,.2);border-radius:5px;}
+    #paging{height: 50px;padding-top: 10px 0;text-align:center;}
+    #paging button{width:70px;height: 30px;margin-top: 5px;background-color:#ddd;border:0;color:#974029;border-radius:5px;}
+    #paging button:hover{color:#caad91;}
+</style>
+<body>
+    <header>
+        <div class="w1200 cl">
+            <h1><img src="img/logo.png" alt=""></h1>
+            <ul class="nav cl">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="cakeList.html">蛋糕</a></li>
+                <li><a href="cakeList.html">面包</a></li>
+                <li><a href="cakeList.html">冰淇淋</a></li>
+                <li><a href="cakeList.html">咖啡下午茶</a></li>
+                <li><a href="cakeList.html">咖啡全国送</a></li>
+                <li><a href="cakeList.html">企业专区</a></li>
+            </ul>
+            <div class="rightPart" style="float: left;width: 440px;height:80px;"> 
+                <a href=""class="appDownlode" style="color:#974029;">APP下载</a>
+                <div class="qrCode">
+                    <img src="img/footer-erweima.png" alt="">
+                    <p>下载享更多优惠</p>
+                </div>
+                <div class="city">上海<i></i></div>
+                <ul class="cityList">   
+                    <li><a href="">北京</a></li>
+                    <li><a href="">上海</a></li>
+                    <li><a href="">武汉</a></li>
+                    <li><a href="">杭州</a></li>
+                    <li><a href="">天津</a></li>
+                    <li><a href="">苏州</a></li>
+                    <li><a href="">深圳</a></li>
+                </ul>
+                <a href="" class="headerMasg">消息</a>
+                <ul class="messageList">
+                    <li><a href="" target="_blank">通知</a></li>
+                    <li><a href="" target="_blank">物流</a></li>
+                </ul>
+
+                <span id="btn">
+                    <!-- <a href="login.html" >登陆/</a><a href="register.html">注册</a> -->
+                </span> 
+
+                <div class="shoppingCart" style="width: 80px;height: 40px;display:inline-block;">
+                    <span style="width: 60px;height: 30px;font-size: 14px;margin-left: 15px;"><a href="shoppingCart.html" style="color:#974029;">购物车</a></span>
+                    <i style="font-size: 16px;color:#974029"></i>
+                </div>
+            </div>
+    </div>
+    </header>
+    <section>
+        <div class="w1200">
+            <div id="searchBar">
+                <input type="text" id="search" placeholder="输入蛋糕名搜索">
+                <button id="searchBtn">搜索</button>
+                <div id="rank">
+                   
+                    <input type="radio" id="order1" name="order" value="goodsid" checked>编号
+                    <label for="order1"></label>
+                   
+                    <input type="radio" id="order2" name="order" value="goodsname">名称
+                    <label for="order2"></label>
+                    
+                    <input type="radio" id="paixu1" name="paixu" value="asc" checked>升序
+                    <label for="paixu1"></label>
+                    
+                    <input type="radio" id="paixu2" name="paixu" value="desc">降序
+                    <label for="paixu2"></label>
+                </div>
+            </div>
+            <ul id="cakeList">
+                    <!-- <li>
+                        <a href="">
+                            <img src="img/1.png" alt="">
+                            <p class="cakename">黑森林</p>
+                            <p class="cakedetails">樱桃酒味，从巧克力卷的缝隙飘出</p>
+                            <p class="price">¥398.00/2.0磅</p>
+                       </a>
+                            <div class="goodsCart">
+                                <a href=""><span class="purchased">加入购物车</span></a>
+                            </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/2.png" alt="">
+                            <p class="cakename">黑森林</p>
+                            <p class="cakedetails">樱桃酒味，从巧克力卷的缝隙飘出</p>
+                            <p class="price">¥398.00/2.0磅</p>
+                        </a>
+                            <div class="goodsCart ">
+                                <a href=""><span class="purchased">加入购物车</span></a>
+                            </div>
+                    </li>
+                     <li>
+                        <a href="">
+                            <img src="img/3.png" alt="">
+                            <p class="cakename">黑森林</p>
+                            <p class="cakedetails">樱桃酒味，从巧克力卷的缝隙飘出</p>
+                            <p class="price">¥398.00/2.0磅</p>
+                        </a>
+                            <div class="goodsCart">
+                                <a href=""><span class="purchased">加入购物车</span></a>
+                            </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/4.png" alt="">
+                            <p class="cakename">黑森林</p>
+                            <p class="cakedetails">樱桃酒味，从巧克力卷的缝隙飘出</p>
+                            <p class="price">¥398.00/2.0磅</p>
+                        </a>
+                            <div class="goodsCart">
+                                <a href=""><span class="purchased">加入购物车</span></a>
+                            </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/5.png" alt="">
+                            <p class="cakename">黑森林</p>
+                            <p class="cakedetails">樱桃酒味，从巧克力卷的缝隙飘出</p>
+                            <p class="price">¥398.00/2.0磅</p>
+                        </a>
+                        <div class="goodsCart">
+                            <a href=""><span class="purchased">加入购物车</span></a>
+                        </div>
+                    </li>           
+                    <li>
+                        <a href="">
+                            <img src="img/6.png" alt="">
+                            <p class="cakename">黑森林</p>
+                            <p class="cakedetails">樱桃酒味，从巧克力卷的缝隙飘出</p>
+                            <p class="price">¥398.00/2.0磅</p>
+                        </a>
+                        <div class="goodsCart">
+                            <a href=""><span class="purchased">加入购物车</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/7.png" alt="">
+                            <p class="cakename">黑森林</p>
+                            <p class="cakedetails">樱桃酒味，从巧克力卷的缝隙飘出</p>
+                            <p class="price">¥398.00/2.0磅</p>
+                        </a>
+                        <div class="goodsCart">
+                            <a href=""><span class="purchased">加入购物车</span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="img/8.png" alt="">
+                            <p class="cakename">黑森林</p>
+                            <p class="cakedetails">樱桃酒味，从巧克力卷的缝隙飘出</p>
+                            <p class="price">¥398.00/2.0磅</p>
+                        </a>
+                        <div class="goodsCart">
+                            <a href=""><span class="purchased">加入购物车</span></a>
+                        </div>
+                    </li> -->
+                </ul>
+                <div id="paging">
+                    <button id="prev">上一页</button>
+                    <button id="next">下一页</button>
+                </div>
+        </div>
+    </section>
+    <footer> 
+            <div class="w1200">
+                <img src="img/footer-logo.png" alt="" class="footerlogo" height="36" width="96">
+                <div class="footer-nav">
+                        <a href="">联系我们</a>
+                        <span>|</span>
+                        <a href="">订购帮助</a>
+                        <span>|</span>
+                        <a href="">企业合作</a>
+                        <span>|</span>
+                        <a href="">生产经营资质</a>
+                        <span>|</span>
+                        <a href="">公告专区</a>
+                </div>
+                <div class="footer-icon cl">
+                    <a href="http://weibo.com/21cake" target="_blank" class="footer-weibo">
+                        <img src="img/footericon-01.png" alt="" width="30px" height="30px">
+                    </a>
+                    <a class="footer-weixin">
+                        <div class="footer-erweima footer-weixin-erweima">
+                            <img src="img/erweima.png"alt="" width="100px" height="100px">
+                        </div>
+                        <img src="img/footericon-02.png"alt="" width="30px" height="30px">
+                    </a>
+                    <a class="footer-app">
+                        <div class="footer-erweima footer-app-erweima">
+                            <img src="img/footer-erweima.png" alt="" width="120px" height="120px">
+                        </div> 
+                         APP
+                    </a>
+                </div>
+            <div class="footer-text">
+                    <span>订购专线：400 650 2121（服务时间 08:00–22:00）</span>
+                    <span>客服电话：021-23099721（全国） | kefu@21cake.com（邮箱）</span>
+                    <span>杭州/广州：提前5小时预订；北京：提前6小时预订；上海：提前5.5-6小时预订；天津/苏州/无锡/深圳：提前8小时预订（部分偏远地区除外，当日22点以后订单，于次日8点开始审核） </span>
+                    <span>当日蛋糕配送截止下单时间：北京：16:50；上海：16:30；杭州/广州：13:50；天津：10:30；苏州/无锡/深圳：11:00</span>
+                    <span>网站注册公司名称: 北京廿一客食品有限公司 地址: 北京市北京经济技术开发区兴海二街5号院3号楼 </span>
+            </div>
+            <div class="footer-copyright">
+                <span>Copyright© 21Cake蛋糕官网商城 2007-2018, 版权所有 <a style="color: #9a9a9a" target="_blank" href="http://www.miitbeian.gov.cn/">京ICP备14006254号-1</a></span>
+            </div>
+    </footer>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/cookie.js"></script>
+<script>
+
+    var cakeList = document.getElementById("cakeList");
+    var searchInput = document.getElementById("search");
+    var searchBtn = document.getElementById("searchBtn");
+    var key ="";
+    var orderList = document.getElementsByName("order");
+    var orderkey = "goodsid";
+    var paixuList = document.getElementsByName("paixu");
+    var paixukey = "asc";
+
+    var nextBtn = document.getElementById("next");
+    var prevBtn = document.getElementById("prev");
+
+    // var paging = document.getElementById("paging");
+
+    var shownum = 8;//第一页展示8个
+    var pageindex = 0;//初始也是0
+
+   getData(key,orderkey, paixukey,shownum * pageindex, shownum);
+
+    searchBtn.onclick=function(){
+        key = searchInput.value;
+        console.log(key);
+        getData(key,orderkey, paixukey,8 * 0, 8);
+    };
+    for(var i=0;i < orderList.length;i++){//排序
+        orderList[i].onclick = function(){
+            orderkey = this.value;//点到谁就根据谁
+            getData(key, orderkey, paixukey,shownum * pageindex, shownum);
+        }
+    };
+    for(var i=0;i<paixuList.length;i++){//升序、降序 
+        paixuList[i].onclick = function(){
+            paixukey = this.value;
+            getData(key, orderkey, paixukey,shownum * pageindex, shownum);
+        }
+    };
+
+    
+    function getData(key,orderkey,paixukey,skipnum, shownum){
+        var req = new XMLHttpRequest();
+        req.open("get","php/list.php?key="+ key + "&orderkey=" + orderkey +"&paixu="+ paixukey+"&skipnum="+skipnum+"&shownum=" + shownum,true);
+        req.send();
+        req.onreadystatechange = function(){
+            if(req.readyState == 4 && req.status == 200){
+                let result = req.responseText;
+                let list = JSON.parse(result);
+                console.log(list);
+                var html="";
+                list.map(function(item){
+                var goodsid = item.goodsid;
+                console.log(goodsid);
+                var goodsname =item.goodsname;
+                var goodsdetails = item.goodsdetails;
+                var goodsprice = item.goodsprice;
+                var goodsimg = item.goodsimg;
+                var goodsnum = item.goodsnum;
+                html += `
+                    <li>
+                        <a href="cakedetal.html?goodsid=${goodsid}">
+                            <img src="img/${goodsimg}" alt="">
+                            <p class="cakename">${goodsname}</p>
+                            <p class="cakedetails">${goodsdetails}</p>
+                            <p class="price">${(goodsprice*1).toFixed(2)}<span>/2.0磅</span></p>
+                       </a>
+                            <div class="goodsCart">
+                                <span class="purchased" onclick="addShpppingcar(${goodsid},'${goodsname}','${goodsimg}',${goodsprice},1)">加入购物车</span>
+                            </div>
+                    </li>`
+            });
+             cakeList.innerHTML =html;
+             var req2 = new XMLHttpRequest();
+             req2.open("get", "php/getCount.php?key="+ key, true);
+             req2.send();
+             req2.onreadystatechange = function () {
+                if (req2.readyState == 4 && req2.status == 200) {
+                    let result = req2.responseText;
+                    let obj = JSON.parse(result);
+                    console.log(obj);
+                    let count = obj["count"];
+
+                    let maxPageIndex = Math.ceil(count / shownum) - 1;
+                    prevBtn.disabled = false;
+                    nextBtn.disabled = false;
+
+                    nextBtn.onclick = function () {
+                            pageindex++;
+                            getData(key, orderkey, paixukey, shownum * pageindex, shownum);
+
+                    };
+                    prevBtn.onclick = function () {
+                            pageindex--;
+                            getData(key, orderkey, paixukey, shownum * pageindex, shownum);
+                    };
+                    if (pageindex == 0) {
+                            prevBtn.onclick = null;
+                            prevBtn.disabled = true;
+
+                    }
+                        if (pageindex == maxPageIndex) {
+                            nextBtn.onclick = null;
+                            nextBtn.disabled = true;
+                    }
+
+                }
+            }
+        }
+    }
+};
+
+// addShpppingcar(${goodsid},'${goodsname}','${goodsimg}','${goodsdetails}','${goodsprice}
+
+function addShpppingcar(goodsid,goodsname,goodsimg,goodsprice,goodsnum){
+    // alert(goodsid);
+    var loginId = getCookie("loginId");
+    // console.log(loginId);
+    if(loginId){
+        $.ajax({
+            type:"get",
+            url:"php/addmyshoppingcar.php",
+            data:{
+                userid:loginId,
+                goodsid:goodsid,
+                goodsname:goodsname,
+                goodsimg:goodsimg,
+                goodsprice:goodsprice,
+                goodsnum:goodsnum
+            },
+            dataType:"json",
+            success: function (data) {
+                if(data.code == 1) {
+                        if(confirm("加入成功 是否进入购物车结算")){
+                            window.location.href = "shoppingCart.html";
+                        }
+                    } else {
+                        alert(data.msg)
+                }
+            }
+        });
+    }else{
+        if (confirm("您还没有登录 是否立即登录")) {
+                gotoLogin();
+            }
+        }
+    }
+
+
+    var loginId = getCookie("loginId");
+    $.ajax({
+            type: "get",
+            url: "php/getnum.php",
+            data: {
+                userid: loginId
+            },
+            dataType: "json",
+            success: function (data) {
+                var count = data["count"];
+                console.log(count);
+                $(".shoppingCart i").html(count);
+            }
+        })
+
+
+
+
+var loginName = getCookie("loginName");
+    if (loginName) {
+        $("#btn").html(loginName + "<span onclick ='existLogin()'>退出</span>").children().css("marginLeft","5px");
+
+    } else {
+        $("#btn").html("<span onclick='gotoLogin()'>点击登录</span>");
+    }
+    
+    function gotoLogin() {
+        setCookie("backURL", window.location.href, 7);
+        window.location.href = "login.html";
+
+    }
+
+    function existLogin() {
+        setCookie("loginId", "", -7);
+        setCookie("loginName", "", -7);
+        $("#btn").html("<span onclick='gotoLogin()'>点击登录</span>");
+    }
+
+
+
+
+    $(".appDownlode").mouseover(function(e){
+        $(".qrCode").slideDown(1000);
+        e.stopPropagation();
+    }).mouseout(function(){
+        $(".qrCode").slideUp(500);
+    });
+
+
+    $(".headerMasg").mouseover(function(){
+        $(".messageList").slideDown(1000);
+        e.stopPropagation();
+    }).mouseout(function(){
+        $(".messageList").slideUp(500);
+    });
+</script>
+</html>
