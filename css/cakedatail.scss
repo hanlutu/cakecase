@@ -1,0 +1,139 @@
+button:focus{
+    outline: none;
+}
+section{
+    width: 100%;
+    margin-top:100px;
+    #box{
+        width: 400px;
+        height: 450px;
+        margin-left: 50px;
+        float: left;
+        #top{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin-bottom: 20px;
+            img{
+                width: 400px;
+                height: 400px;
+                // background-size:400px 400px;
+    
+            };
+            #shadow{
+                width: 50px;
+                height: 50px; 
+                background-color: rgba(157,223,223,.4); 
+                position:absolute; 
+                top:0;
+                left:0;
+                border-radius:50%; 
+                display:none;
+            };
+            #bigshadow{
+                width: 400px;
+                height: 400px;
+                position:absolute;
+                top:0;
+                left:450px;
+                overflow:hidden;
+                display:none; 
+                border-radius: 50%;
+                #bigImg{
+                    width:3200px;
+                    height: 3200px;
+                    position:absolute;
+                    top:0;
+                    left:0;
+                }
+            }
+    
+        };
+        #showImg{
+            width: 400px;
+            height: 180px;
+            li{
+                float: left;
+                width: 95px;
+                height: 90px;
+                margin-left: 20px;
+                img{
+                    width: 95px;
+                    height: 90px;
+                    background-size:95px 90px;  
+                }
+                img:hover{
+                    border:1px solid #eee;
+                }
+            }
+        }
+    };
+    #info{
+        width: 600px;
+        height: 450px;
+        float: right;
+        padding-top: 120px;
+        #goodsname{
+            width: 600px;
+            height: 40px;
+            font-size: 20px;
+            line-height: 40px;
+            color:#974029;
+        }
+        #goodsname:hover{
+            color:#caad91;
+        }
+        #goodsdetail{
+            width: 600px;
+            height: 40px;
+            font-size: 14px;
+            color:#974029;
+        }
+        #goodsdetail:hover{
+            color:#caad91;
+        }
+        #goodsprice{
+            width: 600px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 18px;
+            color:#974029;
+        }
+        #goodsnum{
+            width: 600px;
+            height: 50px;
+            line-height: 50px;
+            color:#974029;
+            font-size: 14px;
+            button{
+                width: 20px;
+                height: 20px;
+                border:0;
+                color:#caad91;
+            };
+            input{
+                width: 30px;
+                height: 18px;
+                text-align:center;
+                font-size: 12px;
+                color:#caad91;
+            }
+        };
+        #shoppingBtn{
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            border:0;
+            border-radius:5px;
+            margin-top: 40px;
+            margin-left: 60px;
+           font-size: 12px;
+           color:#974029;
+        };
+        #shoppingBtn:hover{
+            color:#caad91;
+        }
+    }
+};
+
+
