@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/cakeIndex.css">
+    <link rel="stylesheet" type="text/css" href="css/shoppingCar.css">
+    <style>
+        a{color:#666;text-decoration:none;}
+        table{border-collapse:collapse;border-spacing:0;border:0;}
+        body{color:#974029;font:16px/180% Arial, Helvetica, sans-serif, "新宋体";}
+        clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+        .clearfix{display:inline-table}
+        *html .clearfix{height:1%}
+        .clearfix{display:block}
+        *+html .clearfix{min-height:1%}
+        .fl{float:left;}
+        .fr{float:right;}
+        .check-all{ vertical-align:middle;}
+    </style>
+</head>
+
+<body>
+    <header style="z-index:100;">
+        <div class="w1200 cl">
+            <h1><img src="img/logo.png" alt=""></h1>
+            <ul class="nav cl">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="cakeList.html">蛋糕</a></li>
+                <li><a href="cakeList.html">面包</a></li>
+                <li><a href="cakeList.html">冰淇淋</a></li>
+                <li><a href="cakeList.html">咖啡下午茶</a></li>
+                <li><a href="cakeList.html">咖啡全国送</a></li>
+                <li><a href="cakeList.html">企业专区</a></li>
+            </ul>
+            <div class="rightPart" style="float: left;width: 440px;height:80px;">
+                <a href="" class="appDownlode" style="color:#974029;">APP下载</a>
+                <div class="qrCode">
+                    <img src="img/footer-erweima.png" alt="">
+                    <p>下载享更多优惠</p>
+                </div>
+                <div class="city">上海<i></i></div>
+                <ul class="cityList">
+                    <li><a href="">北京</a></li>
+                    <li><a href="">上海</a></li>
+                    <li><a href="">武汉</a></li>
+                    <li><a href="">杭州</a></li>
+                    <li><a href="">天津</a></li>
+                    <li><a href="">苏州</a></li>
+                    <li><a href="">深圳</a></li>
+                </ul>
+                <a href="" class="headerMasg">消息</a>
+                <ul class="messageList">
+                    <li><a href="" target="_blank">通知</a></li>
+                    <li><a href="" target="_blank">物流</a></li>
+                </ul>
+
+                <span id="btn">
+                    <a href="login.html">登陆/</a><a href="register.html">注册</a>
+                </span>
+                <span></span>
+                <div class="shoppingCart" style="width: 80px;height: 40px;display:inline-block;">
+                    <span style="width: 60px;height: 30px;font-size: 14px;margin-left: 15px;"><a href="#" style="color:#974029;">购物车</a></span>
+                    <i style="font-size: 16px;"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="w1200">
+            <div class="catbox">
+                <table id="cartTable">
+                    <thead>
+                        <tr>
+                            <th><label>
+                                    <input class="check-all check" type="checkbox" />&nbsp;&nbsp;全选</label></th>
+                            <th>商品</th>
+                            <th>单价</th>
+                            <th>数量</th>
+                            <th>小计</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                       
+                    </tbody>
+                </table>
+                <div class="foot" id="foot">
+                    <!-- <label class="fl select-all"><input type="checkbox" class="check-all check" />&nbsp;&nbsp;全选</label> -->
+                    <a class="fl " id="deleteAll" href="javascript:void(0);" style="margin-left: 20px;color:#caad91;">批量删除</a>
+                    <div class="fr closing" onclick="getTotal();">结 算</div>
+                    <input type="hidden" id="cartTotalPrice" />
+                    <div class="fr total">合计：￥<span id="priceTotal">0.00</span></div>
+                    <div class="fr selected" id="selected">已选商品<span id="selectedTotal">0</span>件
+                        <span class="arrow up">︽</span><span class="arrow down"></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="w1200">
+            <img src="img/footer-logo.png" alt="" class="footerlogo" height="36" width="96">
+            <div class="footer-nav">
+                <a href="">联系我们</a>
+                <span>|</span>
+                <a href="">订购帮助</a>
+                <span>|</span>
+                <a href="">企业合作</a>
+                <span>|</span>
+                <a href="">生产经营资质</a>
+                <span>|</span>
+                <a href="">公告专区</a>
+            </div>
+            <div class="footer-icon cl">
+                <a href="http://weibo.com/21cake" target="_blank" class="footer-weibo">
+                    <img src="img/footericon-01.png" alt="" width="30px" height="30px">
+                </a>
+                <a class="footer-weixin">
+                    <div class="footer-erweima footer-weixin-erweima">
+                        <img src="img/erweima.png" alt="" width="100px" height="100px">
+                    </div>
+                    <img src="img/footericon-02.png" alt="" width="30px" height="30px">
+                </a>
+                <a class="footer-app">
+                    <div class="footer-erweima footer-app-erweima">
+                        <img src="img/footer-erweima.png" alt="" width="120px" height="120px">
+                    </div>
+                    APP
+                </a>
+            </div>
+            <div class="footer-text">
+                <span>订购专线：400 650 2121（服务时间 08:00–22:00）</span>
+                <span>客服电话：021-23099721（全国） | kefu@21cake.com（邮箱）</span>
+                <span>杭州/广州：提前5小时预订；北京：提前6小时预订；上海：提前5.5-6小时预订；天津/苏州/无锡/深圳：提前8小时预订（部分偏远地区除外，当日22点以后订单，于次日8点开始审核） </span>
+                <span>当日蛋糕配送截止下单时间：北京：16:50；上海：16:30；杭州/广州：13:50；天津：10:30；苏州/无锡/深圳：11:00</span>
+                <span>网站注册公司名称: 北京廿一客食品有限公司 地址: 北京市北京经济技术开发区兴海二街5号院3号楼 </span>
+            </div>
+            <div class="footer-copyright">
+                <span>Copyright© 21Cake蛋糕官网商城 2007-2018, 版权所有 <a style="color: #9a9a9a" target="_blank" href="http://www.miitbeian.gov.cn/">京ICP备14006254号-1</a></span>
+            </div>
+    </footer>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/cookie.js"></script>
+<script>
+
+
+    var loginName = getCookie("loginName");
+    if (loginName) {
+        $("#btn").html(loginName + "<span onclick ='existLogin()'>退出</span>").children().css("marginLeft", "5px");
+
+    } else {
+        $("#btn").html("<span onclick='gotoLogin()'>点击登录</span>");
+    }
+
+    function gotoLogin() {
+        setCookie("backURL", window.location.href, 7);
+        window.location.href = "login.html";
+
+    }
+
+    function existLogin() {
+        setCookie("loginId", "", -7);
+        setCookie("loginName", "", -7);
+        $("#btn").html("<span onclick='gotoLogin()'>点击登录</span>");
+    }
+
+
+    var tbody = $("#tbody")
+    var loginId = getCookie("loginId");
+    if (loginId) {
+        $.ajax({
+            type: "get",
+            url: "php/myshoppingcar.php",
+            data: {
+                userid: loginId
+            },
+            dataType: "json",
+            success: function (data) {
+                var html = "";
+                // {id: "1", goodsprice: "298", goodsnum: "1", goodsname: "平安夜", goodsimg: "2.png"}
+                $(data).each(function (index, item) {
+                    var id = item.id;
+                    var goodsprice = item.goodsprice;
+                    var goodsnum = item.goodsnum;
+                    var goodsname = item.goodsname;
+                    var goodsimg = item.goodsimg;
+                    html += `
+                         <tr data-id ="${id}">
+                            <td class="checkbox"><input class="check-one check" type="checkbox" data-id="${id}"/></td>
+                            <td class="goods"><img src="img/${goodsimg}" alt=""/><span>${goodsname}</span></td>
+                            <td class="price">${(goodsprice * 1).toFixed(2)}</td>
+                            <td class="count"><span class="reduce" data-id="${id}">-</span>
+                                <input class="count-input" type="text" value="${goodsnum}"/>
+                                <span class="add" data-id="${id}">+</span></td>
+                            <td class="subtotal">${(goodsprice * goodsnum).toFixed(2)}</td>
+                            <td class="operation"><span class="delete" data-id="${id}">删除</span></td>
+                        </tr>`;
+
+                });
+
+                tbody.html(html);
+                //加号
+                var addList = document.getElementsByClassName("add");
+                for (var i = 0; i < addList.length; i++) {
+                    var add = addList[i];
+                    add.onclick = function () {
+                        var id = $(this).attr("data-id");
+                        var countInput = this.previousElementSibling || this.previousSibling;
+                        countInput.value = countInput.value * 1 + 1;
+                        var reduceSpan = countInput.previousElementSibling || countInput.previousSibling;
+                        reduceSpan.innerHTML = "-";
+                        var parent = this.parentNode;
+                        var priceTd = parent.previousElementSibling || parent.previousSibling;
+                        var price = priceTd.innerHTML;
+                        var total = (price * countInput.value).toFixed(2);
+                        var totalTd = parent.nextElementSibling || parent.nextSibling;
+                        totalTd.innerHTML = total;
+                        getTotal();
+                        $.ajax({
+                            type: "get",
+                            url: "php/add.php",
+                            data: {
+                                id: id
+                            },
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.code == 1) {
+                                    console.log(data.msg);
+                                } else {
+                                    console.log(data.msg);
+                                }
+                            }
+                        })
+                    }
+                };
+                //减号
+                var reduceList = document.getElementsByClassName("reduce");
+                for (let i = 0; i < reduceList.length; i++) {
+                    let reduce = reduceList[i];
+                    reduce.onclick = function () {
+                        var id = $(this).attr("data-id");
+                        // alert(id);
+                        var countInput = reduce.nextElementSibling || reduce.nextSibling;
+                        if (countInput.value == 1) {
+                            return false;
+                        }
+                        countInput.value = countInput.value - 1;
+                        if (countInput.value == 1) {
+                            reduce.style.color = "grey";
+                        }
+                        var parent = this.parentNode;
+                        var priceTd = parent.previousElementSibling || parent.previousSibling;
+                        var price = priceTd.innerHTML;
+                        var total = (price * countInput.value).toFixed(2);
+                        var totalTd = parent.nextElementSibling || parent.nextSibling;
+                        totalTd.innerHTML = total;
+                        getTotal();
+                        $.ajax({
+                            type: "get",
+                            url: "php/reduce.php",
+                            data: {
+                                id: id
+                            },
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.code == 1) {
+                                    console.log(data.msg);
+                                } else {
+                                    console.log(data.msg);
+                                }
+                            }
+                        })
+                    }
+                };
+                //全选
+                var checkAll = document.getElementsByClassName("check-all")[0];
+                var checkOneList = document.getElementsByClassName("check-one");
+                var count = 0;
+                var allCount = checkOneList.length;
+
+                checkAll.onclick = function () {
+                    var flag = this.checked;
+                    for (var i = 0; i < checkOneList.length; i++) {
+                        checkOneList[i].checked = flag;
+                    }
+                    count = flag ? allCount : 0;
+                    getTotal();
+                }
+                for (var i = 0; i < checkOneList.length; i++) {
+                    checkOneList[i].onclick = function () {
+                        if (this.checked == true) {
+                            count++;
+                        } else {
+                            count--;
+                        }
+                        if (count == allCount) {
+                            checkAll.checked = true;
+                        } else {
+                            checkAll.checked = false;
+                        }
+                        getTotal();
+                    }
+                };
+                //删除
+                var delList = document.getElementsByClassName("delete");
+                for (let i = 0; i < delList.length; i++) {
+                    let del = delList[i];
+                    del.onclick = function () {
+                        var tr = del.parentNode.parentNode;
+                        tr.remove();
+                        getTotal();
+                        var id = $(this).attr("data-id");
+                        $.ajax({
+                            type: "get",
+                            url: "php/delete.php",
+                            data: {
+                                id: id
+                            },
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.code == 1) {
+                                    console.log(data.msg);
+                                } else {
+                                    console.log(data.msg);
+                                }
+                            }
+                        })
+
+                    }
+                };
+
+                var selectedTotalSpan = document.getElementById("selectedTotal");
+                var priceTotalSpan = document.getElementById("priceTotal");
+                function getTotal() {
+                    var selectedTotal = 0;
+                    var priceTotal = 0;
+                    for (var i = 0; i < checkOneList.length; i++) {
+                        if (checkOneList[i].checked) {
+                            var tr = checkOneList[i].parentNode.parentNode;
+                            var countInput = tr.getElementsByClassName("count-input")[0]; var count = countInput.value * 1;
+                            selectedTotal += count;
+                            var subtotalTd = tr.getElementsByClassName("subtotal")[0];
+                            var subtotal = subtotalTd.innerHTML * 1;
+                            priceTotal += subtotal;
+                        }
+                    }
+                    selectedTotalSpan.innerHTML = selectedTotal;
+                    priceTotalSpan.innerHTML = priceTotal.toFixed(2);
+                };
+
+                var deleteAll = document.getElementById("deleteAll");
+                deleteAll.onclick = function () {
+                    for (var i = 0; i < checkOneList.length; i++) {
+                        var checkOne = checkOneList[i];
+                        if (checkOne.checked) {
+                            var tr = checkOne.parentNode.parentNode;
+                            tr.parentNode.removeChild(tr);
+                            i--;
+                            var id = $(tr).attr("data-id");
+
+                            $.ajax({
+                                type: "get",
+                                url: "php/delete.php",
+                                data: {
+                                    id:id
+                                },
+                                dataType: "json",
+                                success: function (data) {
+                                    if (data.code == 1) {
+                                        console.log(data.msg);
+                                    } else {
+                                        console.log(data.msg);
+                                    }
+                                }
+                            })
+                        }
+
+                    }
+                    getTotal();
+                }
+
+
+
+            }
+
+        });
+        
+        getCount(loginId);
+
+    } else {
+        $("section").html("");
+        $("section").html("您的购物车还没有商品" + "<a href='cakeList.html'>去购物>></a>").css({
+            height: "200px",
+            paddingTop: "140px",
+            margin: "100px auto",
+            textAlign: "center",
+        })
+    }
+
+    function getCount(loginId){
+        $.ajax({
+            type: "get",
+            url: "php/getnum.php",
+            data: {
+                userid: loginId
+            },
+            dataType: "json",
+            success: function (data) {
+                var count = data["count"];
+                $(".shoppingCart i").html(count);
+                
+                if (count == 0) {
+                    $("section .catbox").remove();
+                    $("section").html("您的购物车还没有商品" + "<a href='cakeList.html'>去购物>></a>").css({
+                        height: "200px",
+                        paddingTop: "140px",
+                        margin: "100px auto",
+                        textAlign: "center",
+                    });
+                    
+                
+                }
+               
+            }
+           
+            
+        });      
+    }
+
+   
+
+
+
+
+
+    $(".appDownlode").mouseover(function (e) {
+        $(".qrCode").slideDown(1000);
+        e.stopPropagation();
+    }).mouseout(function () {
+        $(".qrCode").slideUp(500);
+    });
+
+
+    $(".headerMasg").mouseover(function () {
+        $(".messageList").slideDown(1000);
+        e.stopPropagation();
+    }).mouseout(function () {
+        $(".messageList").slideUp(500);
+    });
+</script>
+
+</html>
