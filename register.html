@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/cakeIndex.css">
+</head>
+<style>
+    section{width:100%;height: 531px;background:url(img/timg.png) no-repeat;background-size:100% 531px;padding-top: 80px;}
+    footer{margin-top: -80px;}
+    #register{width: 388px;height: 360px;margin:20px auto;background-color:#fff;margin-right: 90px;border-radius:10px;border:1px solid #eee;}
+    #register h3{line-height: 50px;text-align:center;height: 50px;color:#974029;font-weight: normal;}
+    #register input{width: 302px;height: 38px;display:block;margin:10px auto;border:1px solid #ddd;border-radius:5px;}
+    input::-webkit-input-placeholder {color:#ddd;font-size: 12px;padding:0 10px;}
+    .userpassword{position:relative;}
+    #userpwd_span i{width: 18px;height: 18px;background-color:greenyellow;position:absolute;top:10px;right:20px;display:block;border-radius:50%;color:#fff;font-size: 12px;text-align:center;line-height: 18px;}
+    .user{position:relative;}
+    #showCode{width:70px;height: 25px;background-color:rgba(221,201,223,.5);position:absolute;right:50px;top:8px;border-radius:5px;line-height: 25px;text-align:center;font-size: 14px;color:#333;font-style:oblique;}
+    #randCode_span{width:18px;height: 18px;}
+    .user i{display:inline-block;width: 16px;height: 18px;background-color:greenyellow;border-radius:50%;color:#fff;font-size: 16px;font-weight: bold;padding-left: 2px;position:absolute;right:20px;top:10px;}
+    /* .userPhone #usertel{width: 140px;height: 38px;float: left;margin-left: 42px;}
+    .userPhone #usertel_span{width:150px;height: 38px;border:1px solid #ddd;float:left;margin-left: 10px;margin-top: 10px;border-radius:5px;text-align:center;line-height: 38px;color:#333;font-size: 12px;background-color: #f8f8f8;}
+    .userPhone  i{margin-top: 10px;} */
+     #prompt-text{width: 388px;height: 28px;padding-top: 5px;padding-left: 42px;}
+    #prompt-text span{width: 11px;height: 17px;background-color: #ff0000;border-radius:50%;display:inline-block;color:#Fff;padding-left: 5px;padding-top: -1px;margin-right: 5px;font-size: 14px;}
+     #prompt-text p{color:#ff8000;font-size: 12px;} 
+     #registerBtn{width: 80px;height:30px;margin-left: 154px;border:0;border-radius:5px;}
+     button:focus{outline:none;}
+</style>
+<body>
+    <header>
+                <div class="w1200 cl">
+                    <h1><img src="img/logo.png" alt=""></h1>
+                    <ul class="nav cl">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="index.html">蛋糕</a></li>
+                        <li><a href="index.html">面包</a></li>
+                        <li><a href="index.html">冰淇淋</a></li>
+                        <li><a href="index.html">咖啡下午茶</a></li>
+                        <li><a href="index.html">咖啡全国送</a></li>
+                        <li><a href="index.html">企业专区</a></li>
+                    </ul>
+                    <div class="rightPart" style="float: left;width: 440px;height:80px;"> 
+                        <a href=""class="appDownlode" style="color:#974029;">APP下载</a>
+                        <div class="qrCode">
+                            <img src="img/footer-erweima.png" alt="">
+                            <p>下载享更多优惠</p>
+                        </div>
+                        <div class="city">上海<i></i></div>
+                        <ul class="cityList">   
+                            <li><a href="">北京</a></li>
+                            <li><a href="">上海</a></li>
+                            <li><a href="">武汉</a></li>
+                            <li><a href="">杭州</a></li>
+                            <li><a href="">天津</a></li>
+                            <li><a href="">苏州</a></li>
+                            <li><a href="">深圳</a></li>
+                        </ul>
+                        <a href="" class="headerMasg">消息</a>
+                        <ul class="messageList">
+                            <li><a href="" target="_blank">通知</a></li>
+                            <li><a href="" target="_blank">物流</a></li>
+                        </ul>
+                        <span id="btn"><a href="login.html">登陆</a>/<a href="register.html">注册</a></span>  
+                        <div class="shoppingCart" style="width: 80px;height: 40px;display:inline-block;position:relative;">
+                            <span style="width: 60px;height: 30px;font-size: 14px;margin-left: 15px;"><a href="shoppingCart.html" style="color:#974029;">购物车</a></span>
+                            <i style="width:15px;height:15px;border-radius:50%;background-color:pink;display:inline-block;position:absolute;left:50px;top:-5px;"></i>
+                        </div>
+                    </div>
+            </div>
+    </header>
+
+
+            <section>
+                <div class="1200">
+                    <div id="register">
+                        <h3>用户注册</h3>
+                        <div class="user"> 
+                             <input type="text" placeholder="输入用户名由数字$_字母组成长度为6-12位不能以数字开头" id="username">
+                             <span id="username_span">
+                                  <!-- <i>√</i> -->
+                            </span>
+                            
+                           
+                        </div>
+                        <div class="userpassword">
+                             <input type="password" placeholder="请输入密码由数字字母组成长度6到12位" id="userpwd1">
+                             <span id="userpwd_span">
+                                 <!-- <i>中</i> -->
+                            </span>
+                        </div>
+                        <input type="password" placeholder="确认密码" id="userpwd2">
+                        <div class="user">
+                                <input type="text" placeholder="请输入图片字符" id="randCode">
+                                <span id="showCode"></span>
+                                <span id="randCode_span">
+                                    <!-- <i>√</i> -->
+                                </span> 
+                        </div>
+                        <!-- <div class="userPhone user cl">
+                                <input type="text" placeholder="短信验证码" id="usertel">
+                                <span id="usertel_span">获取短信验证码</span>
+                                <i id="userSpan">√</i>
+                        </div> -->
+        
+                        <div id="prompt-text">
+                            <!-- <p><span>！</span>密码输入错误</p>  -->
+                        </div>
+                        <button id="registerBtn">注册</button>
+                    </div>
+                </div>
+            </section>
+
+
+    <footer>
+            <div class="w1200">
+                <img src="img/footer-logo.png" alt="" class="footerlogo" height="36" width="96">
+                <div class="footer-nav">
+                        <a href="">联系我们</a>
+                        <span>|</span>
+                        <a href="">订购帮助</a>
+                        <span>|</span>
+                        <a href="">企业合作</a>
+                        <span>|</span>
+                        <a href="">生产经营资质</a>
+                        <span>|</span>
+                        <a href="">公告专区</a>
+                </div>
+                <div class="footer-icon cl">
+                    <a href="http://weibo.com/21cake" target="_blank" class="footer-weibo">
+                        <img src="img/footericon-01.png" alt="" width="30px" height="30px">
+                    </a>
+                    <a class="footer-weixin">
+                        <div class="footer-erweima footer-weixin-erweima">
+                            <img src="img/erweima.png"alt="" width="100px" height="100px">
+                        </div>
+                        <img src="img/footericon-02.png"alt="" width="30px" height="30px">
+                    </a>
+                    <a class="footer-app">
+                        <div class="footer-erweima footer-app-erweima">
+                            <img src="img/footer-erweima.png" alt="" width="120px" height="120px">
+                        </div> 
+                         APP
+                    </a>
+                </div>
+            <div class="footer-text">
+                    <span>订购专线：400 650 2121（服务时间 08:00–22:00）</span>
+                    <span>客服电话：021-23099721（全国） | kefu@21cake.com（邮箱）</span>
+                    <span>杭州/广州：提前5小时预订；北京：提前6小时预订；上海：提前5.5-6小时预订；天津/苏州/无锡/深圳：提前8小时预订（部分偏远地区除外，当日22点以后订单，于次日8点开始审核） </span>
+                    <span>当日蛋糕配送截止下单时间：北京：16:50；上海：16:30；杭州/广州：13:50；天津：10:30；苏州/无锡/深圳：11:00</span>
+                    <span>网站注册公司名称: 北京廿一客食品有限公司 地址: 北京市北京经济技术开发区兴海二街5号院3号楼 </span>
+            </div>
+            <div class="footer-copyright">
+                <span>Copyright© 21Cake蛋糕官网商城 2007-2018, 版权所有 <a style="color: #9a9a9a" target="_blank" href="http://www.miitbeian.gov.cn/">京ICP备14006254号-1</a></span>
+            </div>
+        </footer>
+</body>
+<script src="js/register.js"></script>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    var registerBtn = document.getElementById("registerBtn");
+    var usernameInput = document.getElementById("username");
+    var username_span = document.getElementById("username_span");
+    var promptText = document.getElementById("prompt-text");
+
+    var userpwdInput1 = document.getElementById("userpwd1");
+    var userpwdInput2 = document.getElementById("userpwd2");
+    var userpwd_span = document.getElementById("userpwd_span");
+
+    var randCodeInput = document.getElementById("randCode");
+    var showCodeSpan = document.getElementById("showCode");
+    var randCode_span = document.getElementById("randCode_span");
+
+showCodeSpan.innerHTML = getCode();
+showCodeSpan.onclick = function(){
+    showCodeSpan.innerHTML = getCode();
+   }
+
+
+document.onclick = function(){
+    registerBtn.onclick();
+    // checkUsername(username,username_span,usernameReg);
+    // checkUserpwd(userpwd1,userpwd2,userpwd_span,userpwdReg);
+    // checkRandCode(randCode,showCode,randCode_span)
+}
+
+registerBtn.onclick = function(){
+    var username = usernameInput.value;
+    var usernameReg = /^[a-z$_][0-9a-z$_]{5,11}$/ig;
+    var usernameFlag =  checkUsername(username,username_span,usernameReg);
+
+    var userpwd1 = userpwdInput1.value;
+    var userpwd2 = userpwdInput2.value;
+    var userpwdReg = /^[0-9a-z]{6,12}$/ig;
+    var userpwdFlag =  checkUserpwd(userpwd1,userpwd2,userpwd_span,userpwdReg);
+
+    var randCode = randCodeInput.value;
+    var showCode = showCodeSpan.innerHTML;
+    var randCodeFlag = checkRandCode(randCode,showCode,randCode_span);
+
+    if(usernameFlag == true && userpwdFlag == true && randCodeFlag == true){
+        var req = new XMLHttpRequest();
+            req.open("get","php/register.php?username="+username + "&userpwd="+userpwd1,true);
+            req.send();
+            req.onreadystatechange = function(){
+                if(req.readyState == 4 && req.status == 200){
+                    var result = req.responseText;
+                    var obj = JSON.parse(result);
+                    console.log(result);
+                    if(obj.code == 1){
+                        confirm("已注册成功是否跳到登陆页面")
+                        window.location.href = "login.html";
+                    }else{
+                        promptText.innerHTML=`<p><span>！</span>${obj.msq}</p>`
+                        window.location.href ="login.html";
+        
+                    }
+                }
+            }
+      
+    }
+}
+
+
+
+$(".appDownlode").mouseover(function(e){
+        $(".qrCode").slideDown(1000);
+        e.stopPropagation();
+    }).mouseout(function(){
+        $(".qrCode").slideUp(500);
+    });
+
+
+    $(".headerMasg").mouseover(function(){
+        $(".messageList").slideDown(1000);
+        e.stopPropagation();
+    }).mouseout(function(){
+        $(".messageList").slideUp(500);
+    });
+</script>
+</html>
